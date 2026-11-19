@@ -1,0 +1,84 @@
+{
+  "model": "MoritzLaurer/DeBERTa-v3-base-mnli-fever-anli",
+  "revision": "default",
+  "device": "cuda",
+  "total_evaluated": 500,
+  "performance": {
+    "total_time_seconds": 169.17,
+    "average_latency_ms": 338.35,
+    "throughput_samples_per_sec": 2.96
+  },
+  "multi_class": {
+    "accuracy": 0.674,
+    "per_class": {
+      "SUPPORTED": {
+        "precision": 0.8021,
+        "recall": 0.8232,
+        "f1": 0.8125,
+        "support": 379
+      },
+      "CONTRADICTED": {
+        "precision": 1.0,
+        "recall": 0.082,
+        "f1": 0.1515,
+        "support": 61
+      },
+      "INSUFFICIENT_EVIDENCE": {
+        "precision": 0.1887,
+        "recall": 0.3333,
+        "f1": 0.241,
+        "support": 60
+      }
+    },
+    "confusion_matrix": [
+      [
+        312,
+        0,
+        67
+      ],
+      [
+        37,
+        5,
+        19
+      ],
+      [
+        40,
+        0,
+        20
+      ]
+    ]
+  },
+  "binary_hallucination": {
+    "accuracy": 0.712,
+    "per_class": {
+      "NON_HALLUCINATED": {
+        "precision": 0.8021,
+        "recall": 0.8232,
+        "f1": 0.8125,
+        "support": 379
+      },
+      "HALLUCINATED": {
+        "precision": 0.3964,
+        "recall": 0.3636,
+        "f1": 0.3793,
+        "support": 121
+      }
+    },
+    "confusion_matrix": [
+      [
+        312,
+        67
+      ],
+      [
+        77,
+        44
+      ]
+    ],
+    "auroc": 0.6279,
+    "auprc": 0.3608
+  },
+  "truncation": {
+    "truncated_count": 348,
+    "truncated_ratio": 0.696
+  }
+}

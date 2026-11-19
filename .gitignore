@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/
+
+# Environment variables & secrets
+.env
+.env.*
+*.env
+!.env.example
+
+# Large Data Files & Datasets (downloaded via scripts/download_dataset.py)
+data/raw/
+data/processed/
+data/splits/
+data/cache/
+*.jsonl
+!data/evaluation/*.json
+!data/evaluation/*.jsonl

@@ -1,0 +1,649 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Claim-Level LLM Hallucination Detection API",
+        "description": "Production REST API wrapping the independently audited Phase 1\u20135 claim-level hallucination detection pipeline. Decomposes LLM responses into atomic propositions, retrieves grounded evidence via FAISS vector search, runs NLI verification, and scores response-level hallucination risk.",
+        "version": "0.1.0"
+    },
+    "paths": {
+        "/api/v1/health": {
+            "get": {
+                "tags": [
+                    "Hallucination Detection"
+                ],
+                "summary": "Liveness Probe",
+                "description": "Returns HTTP 200 if the API service process is active.",
+                "operationId": "health_api_v1_health_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HealthResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/ready": {
+            "get": {
+                "tags": [
+                    "Hallucination Detection"
+                ],
+                "summary": "Readiness Probe",
+                "description": "Returns HTTP 200 if all ML core inference models are loaded and ready to serve traffic.",
+                "operationId": "ready_api_v1_ready_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ReadyResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/models": {
+            "get": {
+                "tags": [
+                    "Hallucination Detection"
+                ],
+                "summary": "Models and Configuration Metadata",
+                "description": "Returns metadata about the active NLI model, embedding model, thresholds, and execution device.",
+                "operationId": "models_api_v1_models_get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ModelsMetadataResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/analyze": {
+            "post": {
+                "tags": [
+                    "Hallucination Detection"
+                ],
+                "summary": "Analyze Response for Hallucinations",
+                "description": "Decomposes the input response into atomic claims, retrieves relevant evidence passages from the reference context, runs NLI inference, aggregates verdicts using a contradiction-first policy, and computes the response-level hallucination risk.",
+                "operationId": "analyze_api_v1_analyze_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AnalyzeRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AnalyzeResponse"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation or Unprocessable Entity Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    },
+                    "503": {
+                        "description": "Service or Subsystems Unavailable",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/": {
+            "get": {
+                "tags": [
+                    "General"
+                ],
+                "summary": "Root",
+                "operationId": "root__get",
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "additionalProperties": {
+                                        "type": "string"
+                                    },
+                                    "type": "object",
+                                    "title": "Response Root  Get"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AnalyzeRequest": {
+                "properties": {
+                    "response": {
+                        "type": "string",
+                        "maxLength": 100000,
+                        "minLength": 1,
+                        "title": "Response",
+                        "description": "The LLM-generated response text to decompose and verify for hallucinations"
+                    },
+                    "reference_context": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "items": {
+                                    "type": "string"
+                                },
+                                "type": "array"
+                            }
+                        ],
+                        "title": "Reference Context",
+                        "description": "Trusted reference corpus or passages against which the response is evaluated"
+                    },
+                    "question": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "maxLength": 10000
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Question",
+                        "description": "Optional prompt or question that elicited the response"
+                    },
+                    "source_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Source Id",
+                        "description": "Optional source context identifier for scoping retrieval and audit provenance"
+                    },
+                    "sample_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Sample Id",
+                        "description": "Optional client-provided tracking identifier"
+                    },
+                    "top_k": {
+                        "anyOf": [
+                            {
+                                "type": "integer",
+                                "maximum": 20.0,
+                                "minimum": 1.0
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Top K",
+                        "description": "Optional override for number of evidence passages to retrieve per claim"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "response",
+                    "reference_context"
+                ],
+                "title": "AnalyzeRequest",
+                "description": "Request payload for claim-level hallucination detection."
+            },
+            "AnalyzeResponse": {
+                "properties": {
+                    "schema_version": {
+                        "type": "string",
+                        "title": "Schema Version",
+                        "default": "v1.0.0"
+                    },
+                    "sample_id": {
+                        "type": "string",
+                        "title": "Sample Id"
+                    },
+                    "hallucination_risk": {
+                        "type": "number",
+                        "maximum": 1.0,
+                        "minimum": 0.0,
+                        "title": "Hallucination Risk",
+                        "description": "Contradicted claims / total factual claims"
+                    },
+                    "risk_level": {
+                        "type": "string",
+                        "enum": [
+                            "LOW",
+                            "MEDIUM",
+                            "HIGH"
+                        ],
+                        "title": "Risk Level"
+                    },
+                    "support_rate": {
+                        "type": "number",
+                        "maximum": 1.0,
+                        "minimum": 0.0,
+                        "title": "Support Rate",
+                        "description": "Supported claims / total factual claims"
+                    },
+                    "evidence_coverage": {
+                        "type": "number",
+                        "maximum": 1.0,
+                        "minimum": 0.0,
+                        "title": "Evidence Coverage",
+                        "description": "Claims with decisive evidence (supported + contradicted) / total factual claims"
+                    },
+                    "abstention_rate": {
+                        "type": "number",
+                        "maximum": 1.0,
+                        "minimum": 0.0,
+                        "title": "Abstention Rate",
+                        "description": "Insufficient evidence claims / total factual claims"
+                    },
+                    "total_factual_claims": {
+                        "type": "integer",
+                        "title": "Total Factual Claims"
+                    },
+                    "total_claims": {
+                        "type": "integer",
+                        "title": "Total Claims"
+                    },
+                    "verified_claims": {
+                        "items": {
+                            "$ref": "#/components/schemas/VerifiedClaimOut"
+                        },
+                        "type": "array",
+                        "title": "Verified Claims"
+                    },
+                    "excluded_claims": {
+                        "items": {
+                            "$ref": "#/components/schemas/ExcludedClaimOut"
+                        },
+                        "type": "array",
+                        "title": "Excluded Claims"
+                    },
+                    "latency_ms": {
+                        "additionalProperties": {
+                            "type": "number"
+                        },
+                        "type": "object",
+                        "title": "Latency Ms"
+                    },
+                    "metadata": {
+                        "additionalProperties": true,
+                        "type": "object",
+                        "title": "Metadata"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "sample_id",
+                    "hallucination_risk",
+                    "risk_level",
+                    "support_rate",
+                    "evidence_coverage",
+                    "abstention_rate",
+                    "total_factual_claims",
+                    "total_claims"
+                ],
+                "title": "AnalyzeResponse",
+                "description": "Complete claim-level hallucination detection result."
+            },
+            "ErrorResponse": {
+                "properties": {
+                    "error": {
+                        "type": "string",
+                        "title": "Error",
+                        "description": "Error category or type"
+                    },
+                    "detail": {
+                        "title": "Detail",
+                        "description": "Error details or validation message"
+                    },
+                    "request_id": {
+                        "anyOf": [
+                            {
+                                "type": "string"
+                            },
+                            {
+                                "type": "null"
+                            }
+                        ],
+                        "title": "Request Id",
+                        "description": "Tracking request identifier"
+                    },
+                    "status_code": {
+                        "type": "integer",
+                        "title": "Status Code",
+                        "description": "HTTP status code"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "error",
+                    "detail",
+                    "status_code"
+                ],
+                "title": "ErrorResponse",
+                "description": "Structured error schema returned on client or server failure."
+            },
+            "EvidencePassageOut": {
+                "properties": {
+                    "chunk_id": {
+                        "type": "string",
+                        "title": "Chunk Id"
+                    },
+                    "source_id": {
+                        "type": "string",
+                        "title": "Source Id"
+                    },
+                    "text": {
+                        "type": "string",
+                        "title": "Text"
+                    },
+                    "similarity_score": {
+                        "type": "number",
+                        "title": "Similarity Score",
+                        "description": "Cosine similarity between claim and evidence passage"
+                    },
+                    "rank": {
+                        "type": "integer",
+                        "minimum": 1.0,
+                        "title": "Rank",
+                        "description": "1-based retrieval ranking"
+                    },
+                    "nli_verdict": {
+                        "type": "string",
+                        "enum": [
+                            "SUPPORTED",
+                            "CONTRADICTED",
+                            "INSUFFICIENT_EVIDENCE"
+                        ],
+                        "title": "Nli Verdict"
+                    },
+                    "nli_confidence": {
+                        "type": "number",
+                        "maximum": 1.0,
+                        "minimum": 0.0,
+                        "title": "Nli Confidence"
+                    },
+                    "nli_probabilities": {
+                        "additionalProperties": {
+                            "type": "number"
+                        },
+                        "type": "object",
+                        "title": "Nli Probabilities",
+                        "description": "Complete 3-way distribution: SUPPORTED, CONTRADICTED, INSUFFICIENT_EVIDENCE"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "chunk_id",
+                    "source_id",
+                    "text",
+                    "similarity_score",
+                    "rank",
+                    "nli_verdict",
+                    "nli_confidence",
+                    "nli_probabilities"
+                ],
+                "title": "EvidencePassageOut",
+                "description": "Ranked evidence passage considered during verification of a claim."
+            },
+            "ExcludedClaimOut": {
+                "properties": {
+                    "claim_id": {
+                        "type": "string",
+                        "title": "Claim Id"
+                    },
+                    "text": {
+                        "type": "string",
+                        "title": "Text"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Type",
+                        "description": "Category: OPINION, INSTRUCTION, QUESTION, NON_VERIFIABLE"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "claim_id",
+                    "text",
+                    "type"
+                ],
+                "title": "ExcludedClaimOut",
+                "description": "Non-factual statement excluded from verification (opinions, instructions, questions)."
+            },
+            "HealthResponse": {
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "enum": [
+                            "ok",
+                            "degraded",
+                            "error"
+                        ],
+                        "title": "Status",
+                        "default": "ok"
+                    },
+                    "timestamp": {
+                        "type": "string",
+                        "title": "Timestamp",
+                        "description": "ISO 8601 UTC timestamp"
+                    },
+                    "version": {
+                        "type": "string",
+                        "title": "Version",
+                        "description": "API version",
+                        "default": "0.1.0"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "timestamp"
+                ],
+                "title": "HealthResponse",
+                "description": "Liveness probe response."
+            },
+            "ModelsMetadataResponse": {
+                "properties": {
+                    "schema_version": {
+                        "type": "string",
+                        "title": "Schema Version",
+                        "default": "v1.0.0"
+                    },
+                    "nli_model": {
+                        "type": "string",
+                        "title": "Nli Model",
+                        "description": "HuggingFace model identifier for NLI sequence classifier"
+                    },
+                    "embedding_model": {
+                        "type": "string",
+                        "title": "Embedding Model",
+                        "description": "SentenceTransformer embedding model name"
+                    },
+                    "embedding_dimension": {
+                        "type": "integer",
+                        "title": "Embedding Dimension",
+                        "description": "Vector embedding dimension"
+                    },
+                    "claim_extractor_provider": {
+                        "type": "string",
+                        "title": "Claim Extractor Provider",
+                        "description": "Active claim decomposition provider name"
+                    },
+                    "retrieval_top_k": {
+                        "type": "integer",
+                        "title": "Retrieval Top K",
+                        "description": "Default top-K retrieved evidence chunks per claim"
+                    },
+                    "support_threshold": {
+                        "type": "number",
+                        "title": "Support Threshold",
+                        "description": "Minimum entailment probability to assign SUPPORTED"
+                    },
+                    "contradiction_threshold": {
+                        "type": "number",
+                        "title": "Contradiction Threshold",
+                        "description": "Minimum contradiction probability to assign CONTRADICTED"
+                    },
+                    "risk_thresholds": {
+                        "additionalProperties": {
+                            "type": "number"
+                        },
+                        "type": "object",
+                        "title": "Risk Thresholds",
+                        "description": "Threshold cutoffs for categorising hallucination risk level"
+                    },
+                    "device": {
+                        "type": "string",
+                        "title": "Device",
+                        "description": "Compute device"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "nli_model",
+                    "embedding_model",
+                    "embedding_dimension",
+                    "claim_extractor_provider",
+                    "retrieval_top_k",
+                    "support_threshold",
+                    "contradiction_threshold",
+                    "risk_thresholds",
+                    "device"
+                ],
+                "title": "ModelsMetadataResponse",
+                "description": "Metadata regarding active models and threshold configuration."
+            },
+            "ReadyResponse": {
+                "properties": {
+                    "ready": {
+                        "type": "boolean",
+                        "title": "Ready",
+                        "description": "True if all critical inference subsystems are loaded"
+                    },
+                    "components": {
+                        "additionalProperties": {
+                            "type": "boolean"
+                        },
+                        "type": "object",
+                        "title": "Components",
+                        "description": "Individual subsystem health: nli, embeddings, faiss, claim_extractor"
+                    },
+                    "device": {
+                        "type": "string",
+                        "title": "Device",
+                        "description": "Active execution device (cuda or cpu)"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "ready",
+                    "components",
+                    "device"
+                ],
+                "title": "ReadyResponse",
+                "description": "Readiness probe response checking subsystem availability."
+            },
+            "VerifiedClaimOut": {
+                "properties": {
+                    "claim_id": {
+                        "type": "string",
+                        "title": "Claim Id"
+                    },
+                    "claim_text": {
+                        "type": "string",
+                        "title": "Claim Text"
+                    },
+                    "verdict": {
+                        "type": "string",
+                        "enum": [
+                            "SUPPORTED",
+                            "CONTRADICTED",
+                            "INSUFFICIENT_EVIDENCE"
+                        ],
+                        "title": "Verdict"
+                    },
+                    "confidence": {
+                        "type": "number",
+                        "maximum": 1.0,
+                        "minimum": 0.0,
+                        "title": "Confidence"
+                    },
+                    "evidence": {
+                        "items": {
+                            "$ref": "#/components/schemas/EvidencePassageOut"
+                        },
+                        "type": "array",
+                        "title": "Evidence"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "claim_id",
+                    "claim_text",
+                    "verdict",
+                    "confidence"
+                ],
+                "title": "VerifiedClaimOut",
+                "description": "An atomic factual claim with evidence and aggregated verdict."
+            }
+        }
+    }
+}

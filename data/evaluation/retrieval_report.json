@@ -1,0 +1,733 @@
+{
+  "embedding_model": "all-MiniLM-L6-v2",
+  "embedding_dimension": 384,
+  "device": "cuda",
+  "chunk_configuration": {
+    "chunk_size": 300,
+    "chunk_overlap": 60,
+    "method": "sentence_boundary_sliding_window"
+  },
+  "top_k": 3,
+  "evaluation_summary": {
+    "total_samples": 25,
+    "unique_source_documents": 5,
+    "total_chunks_indexed": 71,
+    "total_claims_extracted": 165,
+    "factual_claims_evaluated": 163,
+    "indexing_time_seconds": 0.54,
+    "average_retrieval_latency_ms": 5.92,
+    "pipeline_throughput_claims_per_sec": 166.96
+  },
+  "inspection_samples": [
+    {
+      "sample_id": "24",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model": "gpt-4-0613",
+      "response": "The FBI has charged a Philadelphia woman, Keonna Thomas, with trying to travel overseas to fight for ISIS. This follows the arrests of two New York women, Noelle Velentzas and Asia Siddiqui, who were accused of planning to build an explosive device for attacks in the United States. Thomas purchased an electronic visa to Turkey and a round-trip ticket to Barcelona, following the advice given in an ISIS manual for recruits. She has been charged with attempting to provide material support to a terrorist organisation and could face 15 years in prison.",
+      "total_extracted_claims": 4,
+      "factual_claims_count": 4,
+      "excluded_claims_count": 0,
+      "claims_evidence": [
+        {
+          "claim_id": "C1",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.8523,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.5222,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.3772,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_5",
+              "source_id": "15596",
+              "text": "She could be sentenced to 15 years in prison. On Thursday, Noelle Velentzas, 28, and her former roommate, Asia Siddiqui, 31, were arrested in New York and accused of planning to build an explosive device for attacks in the United States, federal prosecutors said.",
+              "similarity_score": 0.6771,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4757,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.4553,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C3",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_2",
+              "source_id": "15596",
+              "text": "Turkey is known as the easiest place from which to enter Syria and join ISIS. An ISIS manual advises recruits to buy round-trip tickets to vacation spots such as Spain and then purchase tickets for their real destination once they arrive overseas, the FBI said.",
+              "similarity_score": 0.5253,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_3",
+              "source_id": "15596",
+              "text": "On March 26, Thomas purchased a ticket to Barcelona, with a March 29 departure and an April 15 return to the United States, the complaint said. It's not clear when or where she was arrested.",
+              "similarity_score": 0.5199,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4978,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C4",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.7409,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_5",
+              "source_id": "15596",
+              "text": "She could be sentenced to 15 years in prison. On Thursday, Noelle Velentzas, 28, and her former roommate, Asia Siddiqui, 31, were arrested in New York and accused of planning to build an explosive device for attacks in the United States, federal prosecutors said.",
+              "similarity_score": 0.4774,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.4679,
+              "rank": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "25",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model": "gpt-3.5-turbo-0613",
+      "response": "A Philadelphia woman, Keonna Thomas, has been charged by the FBI for attempting to travel overseas to fight for ISIS. Two other women from New York were also arrested on terror charges. Thomas had sent multiple social media messages expressing support for ISIS and had purchased a visa to Turkey, a common route to Syria for joining the terrorist group. In a separate case, two women in New York, Noelle Velentzas and Asia Siddiqui, were arrested for planning to build an explosive device for attacks in the US. The Department of Justice has prosecuted over 30 cases related to terrorism in the past 18 months.",
+      "total_extracted_claims": 6,
+      "factual_claims_count": 6,
+      "excluded_claims_count": 0,
+      "claims_evidence": [
+        {
+          "claim_id": "C1",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.8113,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.527,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.3842,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.6231,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.4931,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4577,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C3",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_7",
+              "source_id": "15596",
+              "text": "Of those cases, 18 allegedly involve support to ISIS. \"The terrorist threat is more decentralized, more diffuse, more complicated,\" Homeland Security Secretary Jeh Johnson told reporters Thursday. \"It involves the potential lone wolf actor, it involves the effective use of social media, the Internet.\"",
+              "similarity_score": 0.4666,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4266,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.3767,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C4",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_2",
+              "source_id": "15596",
+              "text": "Turkey is known as the easiest place from which to enter Syria and join ISIS. An ISIS manual advises recruits to buy round-trip tickets to vacation spots such as Spain and then purchase tickets for their real destination once they arrive overseas, the FBI said.",
+              "similarity_score": 0.6187,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4955,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_3",
+              "source_id": "15596",
+              "text": "On March 26, Thomas purchased a ticket to Barcelona, with a March 29 departure and an April 15 return to the United States, the complaint said. It's not clear when or where she was arrested.",
+              "similarity_score": 0.3494,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C5",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_5",
+              "source_id": "15596",
+              "text": "She could be sentenced to 15 years in prison. On Thursday, Noelle Velentzas, 28, and her former roommate, Asia Siddiqui, 31, were arrested in New York and accused of planning to build an explosive device for attacks in the United States, federal prosecutors said.",
+              "similarity_score": 0.6006,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.4996,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.4107,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C6",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.7291,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_7",
+              "source_id": "15596",
+              "text": "Of those cases, 18 allegedly involve support to ISIS. \"The terrorist threat is more decentralized, more diffuse, more complicated,\" Homeland Security Secretary Jeh Johnson told reporters Thursday. \"It involves the potential lone wolf actor, it involves the effective use of social media, the Internet.\"",
+              "similarity_score": 0.4473,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.3898,
+              "rank": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "26",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model": "mistral-7B-instruct",
+      "response": "The FBI charged a Philadelphia woman named Keonna Thomas, also known as \u201cYoung Lioness\u201d and \u201cFatayat Al Khilafah,\u201d with attempting to travel overseas to fight for ISIS. She purchased an electronic visa to Turkey, which is known as the easiest way to enter Syria and join ISIS. Thomas could be sentenced to 15 years in prison. Meanwhile, two New York women were also arrested this week on terror charges. Homeland Security Secretary Jeh Johnson stated that the terrorist threat is more decentralized and involves the potential use of social media and the internet.",
+      "total_extracted_claims": 5,
+      "factual_claims_count": 5,
+      "excluded_claims_count": 0,
+      "claims_evidence": [
+        {
+          "claim_id": "C1",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.7174,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.715,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.4357,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_2",
+              "source_id": "15596",
+              "text": "Turkey is known as the easiest place from which to enter Syria and join ISIS. An ISIS manual advises recruits to buy round-trip tickets to vacation spots such as Spain and then purchase tickets for their real destination once they arrive overseas, the FBI said.",
+              "similarity_score": 0.7356,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4605,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.3846,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C3",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_3",
+              "source_id": "15596",
+              "text": "On March 26, Thomas purchased a ticket to Barcelona, with a March 29 departure and an April 15 return to the United States, the complaint said. It's not clear when or where she was arrested.",
+              "similarity_score": 0.4685,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_5",
+              "source_id": "15596",
+              "text": "She could be sentenced to 15 years in prison. On Thursday, Noelle Velentzas, 28, and her former roommate, Asia Siddiqui, 31, were arrested in New York and accused of planning to build an explosive device for attacks in the United States, federal prosecutors said.",
+              "similarity_score": 0.4418,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.4245,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C4",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.6183,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.4788,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.465,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C5",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_7",
+              "source_id": "15596",
+              "text": "Of those cases, 18 allegedly involve support to ISIS. \"The terrorist threat is more decentralized, more diffuse, more complicated,\" Homeland Security Secretary Jeh Johnson told reporters Thursday. \"It involves the potential lone wolf actor, it involves the effective use of social media, the Internet.\"",
+              "similarity_score": 0.6301,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.3316,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.2653,
+              "rank": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "27",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model": "llama-2-7b-chat",
+      "response": "FBI charges Philadelphia woman with attempting to join ISIS after purchasing electronic visa for Turkey. Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah,\" made numerous social media posts expressing desire to fight for ISIS. She could face 15 years in prison. Three women have been arrested this week on terror charges, including two in New York who were accused of planning to build an explosive device for attacks in the US.",
+      "total_extracted_claims": 4,
+      "factual_claims_count": 4,
+      "excluded_claims_count": 0,
+      "claims_evidence": [
+        {
+          "claim_id": "C1",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.7572,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4871,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.4787,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.6175,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_7",
+              "source_id": "15596",
+              "text": "Of those cases, 18 allegedly involve support to ISIS. \"The terrorist threat is more decentralized, more diffuse, more complicated,\" Homeland Security Secretary Jeh Johnson told reporters Thursday. \"It involves the potential lone wolf actor, it involves the effective use of social media, the Internet.\"",
+              "similarity_score": 0.4157,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.3437,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C3",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.6492,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_5",
+              "source_id": "15596",
+              "text": "She could be sentenced to 15 years in prison. On Thursday, Noelle Velentzas, 28, and her former roommate, Asia Siddiqui, 31, were arrested in New York and accused of planning to build an explosive device for attacks in the United States, federal prosecutors said.",
+              "similarity_score": 0.5584,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.3027,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C4",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.5996,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.3972,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.3651,
+              "rank": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sample_id": "28",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model": "llama-2-13b-chat",
+      "response": "Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week. Thomas purchased a ticket to Barcelona but was arrested before her trip. Two other women, Noelle Velentzas and Asia Siddiqui, were arrested in New York for planning to build an explosive device. The FBI cited social media messages dating back to 2013 as evidence. This brings the total number of US citizens charged with supporting terrorism to over 30 in the past 18 months, with 18 of those cases involving ISIS.",
+      "total_extracted_claims": 6,
+      "factual_claims_count": 6,
+      "excluded_claims_count": 0,
+      "claims_evidence": [
+        {
+          "claim_id": "C1",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.635,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.4649,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.4575,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C2",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_3",
+              "source_id": "15596",
+              "text": "On March 26, Thomas purchased a ticket to Barcelona, with a March 29 departure and an April 15 return to the United States, the complaint said. It's not clear when or where she was arrested.",
+              "similarity_score": 0.7797,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.2732,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_5",
+              "source_id": "15596",
+              "text": "She could be sentenced to 15 years in prison. On Thursday, Noelle Velentzas, 28, and her former roommate, Asia Siddiqui, 31, were arrested in New York and accused of planning to build an explosive device for attacks in the United States, federal prosecutors said.",
+              "similarity_score": 0.1044,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C3",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_3",
+              "source_id": "15596",
+              "text": "On March 26, Thomas purchased a ticket to Barcelona, with a March 29 departure and an April 15 return to the United States, the complaint said. It's not clear when or where she was arrested.",
+              "similarity_score": 0.872,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.4108,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.331,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C4",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_5",
+              "source_id": "15596",
+              "text": "She could be sentenced to 15 years in prison. On Thursday, Noelle Velentzas, 28, and her former roommate, Asia Siddiqui, 31, were arrested in New York and accused of planning to build an explosive device for attacks in the United States, federal prosecutors said.",
+              "similarity_score": 0.6285,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.4731,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.3917,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C5",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_7",
+              "source_id": "15596",
+              "text": "Of those cases, 18 allegedly involve support to ISIS. \"The terrorist threat is more decentralized, more diffuse, more complicated,\" Homeland Security Secretary Jeh Johnson told reporters Thursday. \"It involves the potential lone wolf actor, it involves the effective use of social media, the Internet.\"",
+              "similarity_score": 0.4069,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_1",
+              "source_id": "15596",
+              "text": "Two New York women were also taken into custody. An FBI complaint cites numerous social media messages dating back to August 2013 that were sent by Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah.\" One Twitter message said, \"If we truly knew the realities ... we all would be rushing to join our brothers in the front lines pray ALLAH accept us as shuhada [martyrs].\" Another said, \"When you're a mujahid [violent jihadi fighter] your death becomes a wedding.\" The FBI said Thomas purchased an electronic visa to Turkey on March 23.",
+              "similarity_score": 0.3785,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_4",
+              "source_id": "15596",
+              "text": "It's not clear when or where she was arrested. She was charged with knowingly attempting to provide material support and resources to a designated foreign terrorist organization. She could be sentenced to 15 years in prison.",
+              "similarity_score": 0.2927,
+              "rank": 3
+            }
+          ]
+        },
+        {
+          "claim_id": "C6",
+          "evidence": [
+            {
+              "chunk_id": "15596_chk_6",
+              "source_id": "15596",
+              "text": "In the past 18 months, the Justice Department's National Security Division has prosecuted or is prosecuting more than 30 cases of people attempting to travel abroad to join or provide support to terrorist groups. Of those cases, 18 allegedly involve support to ISIS.",
+              "similarity_score": 0.7501,
+              "rank": 1
+            },
+            {
+              "chunk_id": "15596_chk_7",
+              "source_id": "15596",
+              "text": "Of those cases, 18 allegedly involve support to ISIS. \"The terrorist threat is more decentralized, more diffuse, more complicated,\" Homeland Security Secretary Jeh Johnson told reporters Thursday. \"It involves the potential lone wolf actor, it involves the effective use of social media, the Internet.\"",
+              "similarity_score": 0.6497,
+              "rank": 2
+            },
+            {
+              "chunk_id": "15596_chk_0",
+              "source_id": "15596",
+              "text": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken into custody.",
+              "similarity_score": 0.3733,
+              "rank": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

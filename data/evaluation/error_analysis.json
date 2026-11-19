@@ -1,0 +1,466 @@
+{
+  "summary": {
+    "total_evaluated": 500,
+    "false_positives_count": 67,
+    "false_negatives_count": 77,
+    "high_conf_errors_count": 76,
+    "neutral_cases_count": 106
+  },
+  "representative_false_positives": [
+    {
+      "sample_id": "24",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-4-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8711,
+      "probabilities": {
+        "supported": 0.0953,
+        "insufficient_evidence": 0.8711,
+        "contradicted": 0.0337
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "The FBI has charged a Philadelphia woman, Keonna Thomas, with trying to travel overseas to fight for ISIS. This follows the arrests of two New York women, Noelle Velentzas and Asia Siddiqui, who were accused of planning to build an explosive device for attacks in the United States. Thomas purchased an electronic visa to Turkey and a round-trip ticket to Barcelona, following the advice given in an ISIS manual for recruits. She has been charged with attempting to provide material support to a terrorist organisation and could face 15 years in prison.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "26",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "mistral-7B-instruct",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.9717,
+      "probabilities": {
+        "supported": 0.0251,
+        "insufficient_evidence": 0.9717,
+        "contradicted": 0.0034
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "The FBI charged a Philadelphia woman named Keonna Thomas, also known as \u201cYoung Lioness\u201d and \u201cFatayat Al Khilafah,\u201d with attempting to travel overseas to fight for ISIS. She purchased an electronic visa to Turkey, which is known as the easiest way to enter Syria and join ISIS. Thomas could be sentenced to 15 years in prison. Meanwhile, two New York women were also arrested this week on terror charges. Homeland Security Secretary Jeh Johnson stated that the terrorist threat is more decentralized and involves the potential use of social media and the internet.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "42",
+      "source_id": "15599",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-4-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.9751,
+      "probabilities": {
+        "supported": 0.0206,
+        "insufficient_evidence": 0.9751,
+        "contradicted": 0.0045
+      },
+      "truncated": true,
+      "premise_snippet": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants over the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health official...",
+      "hypothesis": "Blue Bell has temporarily shut down its Broken Arrow, Oklahoma, plant over the discovery of listeria contamination in a serving of ice cream originating from that plant. This is the third time Blue Bell has taken action in light of a listeria outbreak at a Kansas hospital that served the company's ice cream, which might be linked to Blue Bell Creameries products, according to the CDC. All five patients were hospitalized at the same hospital before developing listeriosis, the CDC said. At least four of them had consumed milkshakes made with Blue Bell ice cream before developing the infection. The CDC advises that individuals and institutions should check their freezers for the recalled products and throw them away. In a statement on its website, Blue Bell said \"this recall in no way includes Blue Bell ice cream half gallons, pints, quarts, 3 gallons or other 3 oz. cups.\" This has been the first product recall in the 108-year history of Blue Bell Creameries, the company said.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "139",
+      "source_id": "15616",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-3.5-turbo-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.915,
+      "probabilities": {
+        "supported": 0.0776,
+        "insufficient_evidence": 0.915,
+        "contradicted": 0.0074
+      },
+      "truncated": true,
+      "premise_snippet": "Kanye West has settled a lawsuit with a paparazzi photographer he assaulted -- and the two have shaken on it. The photographer, Daniel Ramos, had filed the civil suit against West  after the hip-hop s...",
+      "hypothesis": "Kanye West has settled a lawsuit with paparazzi photographer Daniel Ramos, whom he assaulted in 2013 at Los Angeles International Airport. West pleaded no contest to a misdemeanor count of battery and received probation, anger management sessions, and community service. Ramos had filed a civil suit seeking damages, alleging that West interfered with his right to work. The case was set for trial, but Ramos filed a dismissal after reaching a settlement with West. The settlement included an apology from West to Ramos, as shown in a picture of them shaking hands. This incident is not the first time West has been accused of assault.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "140",
+      "source_id": "15616",
+      "task_type": "Summary",
+      "model_evaluated": "mistral-7B-instruct",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.6528,
+      "probabilities": {
+        "supported": 0.2615,
+        "insufficient_evidence": 0.6528,
+        "contradicted": 0.086
+      },
+      "truncated": true,
+      "premise_snippet": "Kanye West has settled a lawsuit with a paparazzi photographer he assaulted -- and the two have shaken on it. The photographer, Daniel Ramos, had filed the civil suit against West  after the hip-hop s...",
+      "hypothesis": "Kanye West has settled a lawsuit with a paparazzi photographer he assaulted in 2013. The photographer, Daniel Ramos, had sued West for damages and accused him of interfering with his right to pursue a lawful occupation. Ramos accepted an apology from West and the two shook hands in a photo released by Ramos' lawyer, Gloria Allred. Ramos and West had previously reached a criminal settlement in which West pleaded no contest to a misdemeanor count of battery and received two years' probation and community service. Allred stated that the case sent an important message that celebrities are not above the law and cannot physically attack someone simply because they were asked a question.",
+      "hallucinated_spans": []
+    }
+  ],
+  "representative_false_negatives": [
+    {
+      "sample_id": "29",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "llama-2-70b-chat",
+      "ground_truth_label": "CONTRADICTED",
+      "predicted_label": "SUPPORTED",
+      "confidence": 0.4512,
+      "probabilities": {
+        "supported": 0.4512,
+        "insufficient_evidence": 0.3289,
+        "contradicted": 0.2198
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "A 30-year-old Philadelphia woman, Keonna Thomas, was charged with attempting to travel to Syria to join ISIS. She was arrested on March 26 and could face 15 years in prison. Two other women, Noelle Velentzas and Asia Siddiqui, were arrested in New York for planning to build an explosive device for attacks in the US. In the past 18 months, the Justice Department has prosecuted 30 cases of people attempting to join or support terrorist groups, with 18 involving ISIS. Homeland Security Secretary Jeh Johnson described the current terrorist threat as decentralized, diffuse, and complicated, with the potential for lone wolf actors and effective use of social media.",
+      "hallucinated_spans": [
+        {
+          "start": 110,
+          "end": 138,
+          "text": "She was arrested on March 26",
+          "label_type": "Evident Conflict",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "EVIDENT CONFLICT:\nOriginal:  It's not clear when or where she was arrested. \nAIGC: She was arrested on March 26"
+        }
+      ]
+    },
+    {
+      "sample_id": "44",
+      "source_id": "15599",
+      "task_type": "Summary",
+      "model_evaluated": "mistral-7B-instruct",
+      "ground_truth_label": "CONTRADICTED",
+      "predicted_label": "SUPPORTED",
+      "confidence": 0.9844,
+      "probabilities": {
+        "supported": 0.9844,
+        "insufficient_evidence": 0.0119,
+        "contradicted": 0.0037
+      },
+      "truncated": true,
+      "premise_snippet": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants over the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health official...",
+      "hypothesis": "Blue Bell Ice Cream Recalls Products Amid Listeria Outbreak; No Blue Bell Ice Cream Is Linked to Infections in Patients\n\nBlue Bell Creameries has temporarily shut down its manufacturing plant in Broken Arrow, Oklahoma, after discovering listeria contamination in a serving of ice cream. The contamination was found in a cup of ice cream recovered from a hospital in Kansas that served Blue Bell products. The company has recalled other products and shut down the plant \"out of an abundance of caution\" to search for a possible cause of contamination.\n\nThe Centers for Disease Control and Prevention (CDC) advised consumers not to eat any Blue Bell-branded products made at the Broken Arrow plant, which includes 3-ounce servings of ice cream from this plant that went to institutions in containers marked with the letters O, P, Q, R, S, or T behind the coding date. However, the warning does not affect other Blue Bell ice cream.\n\nListeriosis, a serious infection caused by eating contaminated food, primarily affects the elderly, pregnant women, newborns, and people with weakened immune systems. Symptoms include fever and muscle aches, sometimes associated with diarrhea or other gastrointestinal symptoms. In the United States, an estimated 1,600 people become seriously ill each year, and approximately 16% of these illnesses result in death.\n\nThe CDC advises that individuals and institutions should check their freezers for the recalled products and throw them away. Blue Bell Creameries has stated that this recall is the first in its 108-year history.",
+      "hallucinated_spans": [
+        {
+          "start": 61,
+          "end": 119,
+          "text": "No Blue Bell Ice Cream Is Linked to Infections in Patients",
+          "label_type": "Evident Conflict",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "EVIDENT CONFLICT:\nOriginal:  Five people were infected and three died in the past year in Kansas from listeria\nAIGC: No Blue Bell Ice Cream Is Linked to Infections in Patients"
+        }
+      ]
+    },
+    {
+      "sample_id": "46",
+      "source_id": "15599",
+      "task_type": "Summary",
+      "model_evaluated": "llama-2-13b-chat",
+      "ground_truth_label": "CONTRADICTED",
+      "predicted_label": "SUPPORTED",
+      "confidence": 0.7471,
+      "probabilities": {
+        "supported": 0.7471,
+        "insufficient_evidence": 0.1727,
+        "contradicted": 0.0801
+      },
+      "truncated": true,
+      "premise_snippet": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants over the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health official...",
+      "hypothesis": "Blue Bell ice cream has temporarily shut down one of its plants after listeria contamination was discovered in a serving of ice cream. Public health officials advised consumers not to eat any Blue Bell products made at the plant in Oklahoma. The recall includes 3-ounce servings of ice cream with certain coding dates. This is the third time Blue Bell has taken action due to listeria contamination, and the company is cooperating with investigations. No illnesses have been reported directly linked to the contaminated ice cream, but five people in Kansas have died from listeriosis in the past year after consuming Blue Bell products.",
+      "hallucinated_spans": [
+        {
+          "start": 535,
+          "end": 566,
+          "text": "five people in Kansas have died",
+          "label_type": "Evident Conflict",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "EVIDENT CONFLICT:\nOriginal:  Five people were infected and \"three\" died in the past year in Kansas from listeria\nAIGC: \"five\" people in Kansas have died\n"
+        }
+      ]
+    },
+    {
+      "sample_id": "58",
+      "source_id": "15601",
+      "task_type": "Summary",
+      "model_evaluated": "llama-2-13b-chat",
+      "ground_truth_label": "INSUFFICIENT_EVIDENCE",
+      "predicted_label": "SUPPORTED",
+      "confidence": 0.9512,
+      "probabilities": {
+        "supported": 0.9512,
+        "insufficient_evidence": 0.0357,
+        "contradicted": 0.0129
+      },
+      "truncated": true,
+      "premise_snippet": "According to an outside review by Columbia Journalism School professors, \"(a)n institutional failure at Rolling Stone resulted in a deeply flawed article about a purported gang rape at the University ...",
+      "hypothesis": "The Rolling Stone article about a purported gang rape at the University of Virginia has been deemed to have \"deeply flawed\" reporting and editing, according to an external review by Columbia Journalism School professors. The fraternity members mentioned in the article may be able to sue for defamation, but it is a complex legal issue. To prove defamation, they must show that the statement was false, caused harm to their reputation, and was made with the requisite intent. However, the fact that the statement was about a group rather than an individual makes it harder to prove. Additionally, the fact that the statement was about a sensitive topic like sexual assault may impact the legal approach. The case is significant because it highlights the importance of accurate reporting and the potential consequences of spreading false information.",
+      "hallucinated_spans": [
+        {
+          "start": 583,
+          "end": 703,
+          "text": "Additionally, the fact that the statement was about a sensitive topic like sexual assault may impact the legal approach.",
+          "label_type": "Evident Baseless Info",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "HIGH INTRO OF NEW INFO\nOriginal: This generated details is not mentioned in source content.\nGenerative: Additionally, the fact that the statement was about a sensitive topic like sexual assault may impact the legal approach. \n\n"
+        }
+      ]
+    },
+    {
+      "sample_id": "68",
+      "source_id": "15604",
+      "task_type": "Summary",
+      "model_evaluated": "mistral-7B-instruct",
+      "ground_truth_label": "INSUFFICIENT_EVIDENCE",
+      "predicted_label": "SUPPORTED",
+      "confidence": 0.5352,
+      "probabilities": {
+        "supported": 0.5352,
+        "insufficient_evidence": 0.4429,
+        "contradicted": 0.0222
+      },
+      "truncated": true,
+      "premise_snippet": "When I was elected to the Kentucky State Senate in 1967, I became the first woman and the first person of color to serve in the body.  Five decades later, I find it almost unfathomable that a politici...",
+      "hypothesis": "Senator Elizabeth Warren has responded to Rand Paul's decision to run for president by stating that she finds it \"almost unfathomable\" that a politician from her own state is attempting to launch his campaign on a record that includes questioning landmark voting rights and civil rights legislation. She criticized his campaign team's message of inclusion as hype and highlighted his past actions that have undermined the rights of marginalized communities. Warren urged the GOP to have a real commitment to the issues facing minority communities and reminded Paul's supporters of his previous comments on the Civil Rights Act, the Department of Education, women's rights, and DREAMers' protection.",
+      "hallucinated_spans": [
+        {
+          "start": 0,
+          "end": 24,
+          "text": "Senator Elizabeth Warren",
+          "label_type": "Evident Baseless Info",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "HIGH INTRO OF NEW INFO\nOriginal: Source content did not mention Senator Elizabeth Warren \nGenerative: Senator Elizabeth Warren "
+        }
+      ]
+    }
+  ],
+  "representative_high_conf_errors": [
+    {
+      "sample_id": "24",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-4-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8711,
+      "probabilities": {
+        "supported": 0.0953,
+        "insufficient_evidence": 0.8711,
+        "contradicted": 0.0337
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "The FBI has charged a Philadelphia woman, Keonna Thomas, with trying to travel overseas to fight for ISIS. This follows the arrests of two New York women, Noelle Velentzas and Asia Siddiqui, who were accused of planning to build an explosive device for attacks in the United States. Thomas purchased an electronic visa to Turkey and a round-trip ticket to Barcelona, following the advice given in an ISIS manual for recruits. She has been charged with attempting to provide material support to a terrorist organisation and could face 15 years in prison.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "26",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "mistral-7B-instruct",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.9717,
+      "probabilities": {
+        "supported": 0.0251,
+        "insufficient_evidence": 0.9717,
+        "contradicted": 0.0034
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "The FBI charged a Philadelphia woman named Keonna Thomas, also known as \u201cYoung Lioness\u201d and \u201cFatayat Al Khilafah,\u201d with attempting to travel overseas to fight for ISIS. She purchased an electronic visa to Turkey, which is known as the easiest way to enter Syria and join ISIS. Thomas could be sentenced to 15 years in prison. Meanwhile, two New York women were also arrested this week on terror charges. Homeland Security Secretary Jeh Johnson stated that the terrorist threat is more decentralized and involves the potential use of social media and the internet.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "42",
+      "source_id": "15599",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-4-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.9751,
+      "probabilities": {
+        "supported": 0.0206,
+        "insufficient_evidence": 0.9751,
+        "contradicted": 0.0045
+      },
+      "truncated": true,
+      "premise_snippet": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants over the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health official...",
+      "hypothesis": "Blue Bell has temporarily shut down its Broken Arrow, Oklahoma, plant over the discovery of listeria contamination in a serving of ice cream originating from that plant. This is the third time Blue Bell has taken action in light of a listeria outbreak at a Kansas hospital that served the company's ice cream, which might be linked to Blue Bell Creameries products, according to the CDC. All five patients were hospitalized at the same hospital before developing listeriosis, the CDC said. At least four of them had consumed milkshakes made with Blue Bell ice cream before developing the infection. The CDC advises that individuals and institutions should check their freezers for the recalled products and throw them away. In a statement on its website, Blue Bell said \"this recall in no way includes Blue Bell ice cream half gallons, pints, quarts, 3 gallons or other 3 oz. cups.\" This has been the first product recall in the 108-year history of Blue Bell Creameries, the company said.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "44",
+      "source_id": "15599",
+      "task_type": "Summary",
+      "model_evaluated": "mistral-7B-instruct",
+      "ground_truth_label": "CONTRADICTED",
+      "predicted_label": "SUPPORTED",
+      "confidence": 0.9844,
+      "probabilities": {
+        "supported": 0.9844,
+        "insufficient_evidence": 0.0119,
+        "contradicted": 0.0037
+      },
+      "truncated": true,
+      "premise_snippet": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants over the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health official...",
+      "hypothesis": "Blue Bell Ice Cream Recalls Products Amid Listeria Outbreak; No Blue Bell Ice Cream Is Linked to Infections in Patients\n\nBlue Bell Creameries has temporarily shut down its manufacturing plant in Broken Arrow, Oklahoma, after discovering listeria contamination in a serving of ice cream. The contamination was found in a cup of ice cream recovered from a hospital in Kansas that served Blue Bell products. The company has recalled other products and shut down the plant \"out of an abundance of caution\" to search for a possible cause of contamination.\n\nThe Centers for Disease Control and Prevention (CDC) advised consumers not to eat any Blue Bell-branded products made at the Broken Arrow plant, which includes 3-ounce servings of ice cream from this plant that went to institutions in containers marked with the letters O, P, Q, R, S, or T behind the coding date. However, the warning does not affect other Blue Bell ice cream.\n\nListeriosis, a serious infection caused by eating contaminated food, primarily affects the elderly, pregnant women, newborns, and people with weakened immune systems. Symptoms include fever and muscle aches, sometimes associated with diarrhea or other gastrointestinal symptoms. In the United States, an estimated 1,600 people become seriously ill each year, and approximately 16% of these illnesses result in death.\n\nThe CDC advises that individuals and institutions should check their freezers for the recalled products and throw them away. Blue Bell Creameries has stated that this recall is the first in its 108-year history.",
+      "hallucinated_spans": [
+        {
+          "start": 61,
+          "end": 119,
+          "text": "No Blue Bell Ice Cream Is Linked to Infections in Patients",
+          "label_type": "Evident Conflict",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "EVIDENT CONFLICT:\nOriginal:  Five people were infected and three died in the past year in Kansas from listeria\nAIGC: No Blue Bell Ice Cream Is Linked to Infections in Patients"
+        }
+      ]
+    },
+    {
+      "sample_id": "58",
+      "source_id": "15601",
+      "task_type": "Summary",
+      "model_evaluated": "llama-2-13b-chat",
+      "ground_truth_label": "INSUFFICIENT_EVIDENCE",
+      "predicted_label": "SUPPORTED",
+      "confidence": 0.9512,
+      "probabilities": {
+        "supported": 0.9512,
+        "insufficient_evidence": 0.0357,
+        "contradicted": 0.0129
+      },
+      "truncated": true,
+      "premise_snippet": "According to an outside review by Columbia Journalism School professors, \"(a)n institutional failure at Rolling Stone resulted in a deeply flawed article about a purported gang rape at the University ...",
+      "hypothesis": "The Rolling Stone article about a purported gang rape at the University of Virginia has been deemed to have \"deeply flawed\" reporting and editing, according to an external review by Columbia Journalism School professors. The fraternity members mentioned in the article may be able to sue for defamation, but it is a complex legal issue. To prove defamation, they must show that the statement was false, caused harm to their reputation, and was made with the requisite intent. However, the fact that the statement was about a group rather than an individual makes it harder to prove. Additionally, the fact that the statement was about a sensitive topic like sexual assault may impact the legal approach. The case is significant because it highlights the importance of accurate reporting and the potential consequences of spreading false information.",
+      "hallucinated_spans": [
+        {
+          "start": 583,
+          "end": 703,
+          "text": "Additionally, the fact that the statement was about a sensitive topic like sexual assault may impact the legal approach.",
+          "label_type": "Evident Baseless Info",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "HIGH INTRO OF NEW INFO\nOriginal: This generated details is not mentioned in source content.\nGenerative: Additionally, the fact that the statement was about a sensitive topic like sexual assault may impact the legal approach. \n\n"
+        }
+      ]
+    }
+  ],
+  "representative_neutral_cases": [
+    {
+      "sample_id": "24",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-4-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.8711,
+      "probabilities": {
+        "supported": 0.0953,
+        "insufficient_evidence": 0.8711,
+        "contradicted": 0.0337
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "The FBI has charged a Philadelphia woman, Keonna Thomas, with trying to travel overseas to fight for ISIS. This follows the arrests of two New York women, Noelle Velentzas and Asia Siddiqui, who were accused of planning to build an explosive device for attacks in the United States. Thomas purchased an electronic visa to Turkey and a round-trip ticket to Barcelona, following the advice given in an ISIS manual for recruits. She has been charged with attempting to provide material support to a terrorist organisation and could face 15 years in prison.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "26",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "mistral-7B-instruct",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.9717,
+      "probabilities": {
+        "supported": 0.0251,
+        "insufficient_evidence": 0.9717,
+        "contradicted": 0.0034
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "The FBI charged a Philadelphia woman named Keonna Thomas, also known as \u201cYoung Lioness\u201d and \u201cFatayat Al Khilafah,\u201d with attempting to travel overseas to fight for ISIS. She purchased an electronic visa to Turkey, which is known as the easiest way to enter Syria and join ISIS. Thomas could be sentenced to 15 years in prison. Meanwhile, two New York women were also arrested this week on terror charges. Homeland Security Secretary Jeh Johnson stated that the terrorist threat is more decentralized and involves the potential use of social media and the internet.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "28",
+      "source_id": "15596",
+      "task_type": "Summary",
+      "model_evaluated": "llama-2-13b-chat",
+      "ground_truth_label": "CONTRADICTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.4104,
+      "probabilities": {
+        "supported": 0.4041,
+        "insufficient_evidence": 0.4104,
+        "contradicted": 0.1855
+      },
+      "truncated": true,
+      "premise_snippet": "The FBI charged a Philadelphia woman on Thursday with trying to travel overseas to fight for ISIS. She's one of three women arrested this week on terror charges. Two New York women were also taken int...",
+      "hypothesis": "Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week. Thomas purchased a ticket to Barcelona but was arrested before her trip. Two other women, Noelle Velentzas and Asia Siddiqui, were arrested in New York for planning to build an explosive device. The FBI cited social media messages dating back to 2013 as evidence. This brings the total number of US citizens charged with supporting terrorism to over 30 in the past 18 months, with 18 of those cases involving ISIS.",
+      "hallucinated_spans": [
+        {
+          "start": 0,
+          "end": 106,
+          "text": "Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week.",
+          "label_type": "Evident Conflict",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "EVIDENT CONFLICT:\nOriginal: Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week.\nAIGC: It is Keonna Thomas who is charged of attempting to join ISIS. Meanwhile, the other two were arrested and accused of planning to build an explosive device for attacks in the United States."
+        },
+        {
+          "start": 150,
+          "end": 178,
+          "text": "was arrested before her trip",
+          "label_type": "Evident Conflict",
+          "due_to_null": false,
+          "implicit_true": false,
+          "meta": "EVIDENT CONFLICT:\nOriginal:  It's not clear when or where she was arrested. \nAIGC:was arrested before her trip\n"
+        }
+      ]
+    },
+    {
+      "sample_id": "42",
+      "source_id": "15599",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-4-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.9751,
+      "probabilities": {
+        "supported": 0.0206,
+        "insufficient_evidence": 0.9751,
+        "contradicted": 0.0045
+      },
+      "truncated": true,
+      "premise_snippet": "Blue Bell ice cream has temporarily shut down one of its manufacturing plants over the discovery of listeria contamination in a serving of ice cream originating from that plant. Public health official...",
+      "hypothesis": "Blue Bell has temporarily shut down its Broken Arrow, Oklahoma, plant over the discovery of listeria contamination in a serving of ice cream originating from that plant. This is the third time Blue Bell has taken action in light of a listeria outbreak at a Kansas hospital that served the company's ice cream, which might be linked to Blue Bell Creameries products, according to the CDC. All five patients were hospitalized at the same hospital before developing listeriosis, the CDC said. At least four of them had consumed milkshakes made with Blue Bell ice cream before developing the infection. The CDC advises that individuals and institutions should check their freezers for the recalled products and throw them away. In a statement on its website, Blue Bell said \"this recall in no way includes Blue Bell ice cream half gallons, pints, quarts, 3 gallons or other 3 oz. cups.\" This has been the first product recall in the 108-year history of Blue Bell Creameries, the company said.",
+      "hallucinated_spans": []
+    },
+    {
+      "sample_id": "139",
+      "source_id": "15616",
+      "task_type": "Summary",
+      "model_evaluated": "gpt-3.5-turbo-0613",
+      "ground_truth_label": "SUPPORTED",
+      "predicted_label": "INSUFFICIENT_EVIDENCE",
+      "confidence": 0.915,
+      "probabilities": {
+        "supported": 0.0776,
+        "insufficient_evidence": 0.915,
+        "contradicted": 0.0074
+      },
+      "truncated": true,
+      "premise_snippet": "Kanye West has settled a lawsuit with a paparazzi photographer he assaulted -- and the two have shaken on it. The photographer, Daniel Ramos, had filed the civil suit against West  after the hip-hop s...",
+      "hypothesis": "Kanye West has settled a lawsuit with paparazzi photographer Daniel Ramos, whom he assaulted in 2013 at Los Angeles International Airport. West pleaded no contest to a misdemeanor count of battery and received probation, anger management sessions, and community service. Ramos had filed a civil suit seeking damages, alleging that West interfered with his right to work. The case was set for trial, but Ramos filed a dismissal after reaching a settlement with West. The settlement included an apology from West to Ramos, as shown in a picture of them shaking hands. This incident is not the first time West has been accused of assault.",
+      "hallucinated_spans": []
+    }
+  ]
+}

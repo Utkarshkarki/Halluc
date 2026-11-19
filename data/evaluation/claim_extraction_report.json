@@ -1,0 +1,160 @@
+{
+  "extractor_model": "rule_based:rule-based-decomposer-v1",
+  "fixtures_evaluated": 6,
+  "fixtures": [
+    {
+      "fixture_id": "F1_COMPOUND_FACTUAL",
+      "description": "Canonical compound factual statement with entities, dates, and awards",
+      "input_text": "Albert Einstein was born in Germany in 1879 and received the 1921 Nobel Prize for relativity.",
+      "total_claims": 3,
+      "factual_claims": [
+        "Albert Einstein was born in Germany.",
+        "Albert Einstein was born in 1879.",
+        "Albert Einstein received the 1921 Nobel Prize for relativity."
+      ],
+      "excluded_claims": [],
+      "atomicity_flag": "PASS",
+      "type_alignment_flag": "PASS",
+      "latency_ms": 1.13,
+      "cached": false
+    },
+    {
+      "fixture_id": "F2_PURE_OPINION",
+      "description": "Subjective aesthetic commentary without empirical facts",
+      "input_text": "In my opinion, this restaurant serves the most amazing and delicious pasta in the entire city.",
+      "total_claims": 1,
+      "factual_claims": [],
+      "excluded_claims": [
+        "[OPINION] In my opinion, this restaurant serves the most amazing and delicious pasta in the entire city."
+      ],
+      "atomicity_flag": "PASS",
+      "type_alignment_flag": "PASS",
+      "latency_ms": 0.04,
+      "cached": false
+    },
+    {
+      "fixture_id": "F3_MIXED_FACTUAL_OPINION_INSTRUCTION",
+      "description": "Combination of factual history, personal opinion, and user instruction",
+      "input_text": "Subway was founded in 1965 in Bridgeport, Connecticut. The sandwiches are wonderful. Please check your local store hours before visiting!",
+      "total_claims": 3,
+      "factual_claims": [
+        "Subway was founded in 1965 in Bridgeport, Connecticut."
+      ],
+      "excluded_claims": [
+        "[OPINION] The sandwiches are wonderful.",
+        "[INSTRUCTION] Please check your local store hours before visiting!."
+      ],
+      "atomicity_flag": "PASS",
+      "type_alignment_flag": "PASS",
+      "latency_ms": 0.07,
+      "cached": false
+    },
+    {
+      "fixture_id": "F4_NEGATION_AND_UNCERTAINTY",
+      "description": "Negative factual assertion and temporal boundaries",
+      "input_text": "The Palestinian Authority did not join the ICC before 2015 and has never held formal state party status in the UN General Assembly.",
+      "total_claims": 2,
+      "factual_claims": [
+        "The Palestinian Authority did not join the ICC before 2015.",
+        "The Palestinian Authority did not join the ICC before 2015 has never held formal state party status in the UN General Assembly."
+      ],
+      "excluded_claims": [],
+      "atomicity_flag": "PASS",
+      "type_alignment_flag": "PASS",
+      "latency_ms": 0.08,
+      "cached": false
+    },
+    {
+      "fixture_id": "F5_CONVERSATIONAL_QUESTION_FILLER",
+      "description": "Interrogative question followed by non-verifiable conversational sign-off",
+      "input_text": "What is the procedure for preparing beet greens? Hope this helps! Have a great day!",
+      "total_claims": 3,
+      "factual_claims": [],
+      "excluded_claims": [
+        "[QUESTION] What is the procedure for preparing beet greens?.",
+        "[NON_VERIFIABLE] Hope this helps!.",
+        "[NON_VERIFIABLE] Have a great day!."
+      ],
+      "atomicity_flag": "PASS",
+      "type_alignment_flag": "PASS",
+      "latency_ms": 0.05,
+      "cached": false
+    },
+    {
+      "fixture_id": "F6_VERY_SHORT_ANSWER",
+      "description": "Minimal single-clause answer",
+      "input_text": "Paris is the capital of France.",
+      "total_claims": 1,
+      "factual_claims": [
+        "Paris is the capital of France."
+      ],
+      "excluded_claims": [],
+      "atomicity_flag": "PASS",
+      "type_alignment_flag": "PASS",
+      "latency_ms": 0.03,
+      "cached": false
+    }
+  ],
+  "ragtruth_samples": [
+    {
+      "sample_id": "24",
+      "task_type": "Summary",
+      "total_claims": 4,
+      "factual_claims_count": 4,
+      "excluded_claims_count": 0,
+      "sample_claims": [
+        "The FBI has charged a Philadelphia woman, Keonna Thomas, with trying to travel overseas to fight for ISIS.",
+        "This follows the arrests of two New York women, Noelle Velentzas and Asia Siddiqui, who were accused of planning to build an explosive device for attacks in the United States.",
+        "Thomas purchased an electronic visa to Turkey and a round-trip ticket to Barcelona, following the advice given in an ISIS manual for recruits."
+      ]
+    },
+    {
+      "sample_id": "25",
+      "task_type": "Summary",
+      "total_claims": 6,
+      "factual_claims_count": 6,
+      "excluded_claims_count": 0,
+      "sample_claims": [
+        "A Philadelphia woman, Keonna Thomas, has been charged by the FBI for attempting to travel overseas to fight for ISIS.",
+        "Two other women from New York were also arrested on terror charges.",
+        "Thomas had sent multiple social media messages expressing support for ISIS."
+      ]
+    },
+    {
+      "sample_id": "26",
+      "task_type": "Summary",
+      "total_claims": 5,
+      "factual_claims_count": 5,
+      "excluded_claims_count": 0,
+      "sample_claims": [
+        "The FBI charged a Philadelphia woman named Keonna Thomas, also known as \u201cYoung Lioness\u201d and \u201cFatayat Al Khilafah,\u201d with attempting to travel overseas to fight for ISIS.",
+        "She purchased an electronic visa to Turkey, which is known as the easiest way to enter Syria and join ISIS.",
+        "Thomas could be sentenced to 15 years in prison."
+      ]
+    },
+    {
+      "sample_id": "27",
+      "task_type": "Summary",
+      "total_claims": 4,
+      "factual_claims_count": 4,
+      "excluded_claims_count": 0,
+      "sample_claims": [
+        "FBI charges Philadelphia woman with attempting to join ISIS after purchasing electronic visa for Turkey.",
+        "Keonna Thomas, 30, also known as \"Young Lioness\" and \"Fatayat Al Khilafah,\" made numerous social media posts expressing desire to fight for ISIS.",
+        "She could face 15 years in prison."
+      ]
+    },
+    {
+      "sample_id": "28",
+      "task_type": "Summary",
+      "total_claims": 6,
+      "factual_claims_count": 6,
+      "excluded_claims_count": 0,
+      "sample_claims": [
+        "Three women, including Keonna Thomas of Philadelphia, were charged with attempting to join ISIS this week.",
+        "Thomas purchased a ticket to Barcelona.",
+        "Thomas purchased a ticket to Barcelona was arrested before her trip."
+      ]
+    }
+  ]
+}

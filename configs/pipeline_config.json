@@ -1,0 +1,26 @@
+{
+  "pipeline": {
+    "schema_version": "1.0",
+    "description": "Configuration for Phase 5 hallucination detection pipeline"
+  },
+  "retrieval": {
+    "top_k": 5
+  },
+  "aggregation": {
+    "support_threshold": 0.5,
+    "contradiction_threshold": 0.4
+  },
+  "scoring": {
+    "low_risk_max": 0.20,
+    "medium_risk_max": 0.50
+  },
+  "calibration": {
+    "enabled": false,
+    "method": "temperature"
+  },
+  "llm_judge": {
+    "enabled": false
+  },
+  "device": "auto",
+  "dtype": "float32"
+}
